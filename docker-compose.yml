@@ -21,7 +21,7 @@ services:
       environment:
          - "GF_SERVER_ROOT_URL=your.grafana.url"
 
-   influxdb_V1:
+   influxdb:
       image: influxdb
       container_name: influxdb
       restart: always

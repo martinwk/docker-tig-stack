@@ -18,8 +18,8 @@ services:
          - /srv/dev-disk-by-label-MyPassport/appdata/grafana/data:/var/lib/grafana
       restart: always
       user: "0"
-      environment:
-         - "GF_SERVER_ROOT_URL=your.grafana.url"
+#       environment:
+#          - "GF_SERVER_ROOT_URL=your.grafana.url"
 
    influxdb:
       image: influxdb

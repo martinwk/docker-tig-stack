@@ -24,13 +24,32 @@ services:
    influxdb:
       image: influxdb
       container_name: influxdb
-      restart: always
+      restart: always      
+      environment:
+         INFLUX_DATABASE: ${influx_db}
+         INLFUX_ADMIN_USER: ${influx_admin_user}
+         INFLUX_ADMIN_PASS: ${influx_admin_user}
       ports:
-         - 8086:8086
+         - ${influxdb_port}:${influxdb_port}
+         - 8083:8083
       volumes:
          - /srv/dev-disk-by-label-MyPassport/appdata/influxdb/:/var/lib/influxdb
 
-
+   telegraf:
+       image: telegraf
+#        links:
+#            - influxdb:influxdb
+       environment:
+           HOST_NAME: "telegraf"
+           INFLUXDB_HOST: "influxdb"
+           INFLUXDB_PORT: ${influxdb_port}
+           DATABASE: ${influx_db}
+       ports:
+           - 8888:8888
+#        tty: true
+       volumes:
+           - /var/run/docker.sock:/var/run/docker.sock
+#        privileged: true
 #    telegraf:
 #       image: telegraf
 #       hostname: omv

@@ -1,6 +1,6 @@
 # adjusted from: https://medium.com/@musaib_khan/setup-telegraf-influxdb-and-grafana-in-docker-b1c6ac6bd523
 # set PWD as env variable in stack when deploying this with portainer
-# Move  telegraf.conf tp cprrect place
+# Move  telegraf.conf to correct place
 version: "2"
 services:
   grafana:
@@ -27,8 +27,8 @@ services:
     - INFLUXDB_DB=telegraf
     - INFLUXDB_USER=telegraf
     - INFLUXDB_ADMIN_ENABLED=true
-    - INFLUXDB_ADMIN_USER=admin
-    - INFLUXDB_ADMIN_PASSWORD=Welcome123
+    - INFLUXDB_ADMIN_USER=$influx_db_admin
+    - INFLUXDB_ADMIN_PASSWORD=$influx_db_pwd
   telegraf:
      image: telegraf
      container_name: telegraf

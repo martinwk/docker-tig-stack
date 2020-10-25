@@ -1,6 +1,6 @@
 # adjusted from: https://medium.com/@musaib_khan/setup-telegraf-influxdb-and-grafana-in-docker-b1c6ac6bd523
 # set PWD as env variable in stack when deploying this with portainer
-# Move  telegraf.conf to correct place, that is, $PWD/telegraf.conf
+# Move  telegraf.conf to correct place, that is, $PWD/tig/telegraf.conf
 version: "2"
 services:
   grafana:
@@ -40,7 +40,7 @@ services:
        HOST_SYS: /rootfs/sys
        HOST_ETC: /rootfs/etc
      volumes:
-     - $PWD/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+     - $PWD/tig/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
      - /var/run/docker.sock:/var/run/docker.sock:ro
      - /sys:/rootfs/sys:ro
      - /proc:/rootfs/proc:ro

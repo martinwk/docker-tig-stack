@@ -13,7 +13,7 @@ services:
     - monitoring
     volumes:
     - $PWD/tig/grafana/monitoring:/vol01/Docker/monitoring
-    - $PWD/tig/grafana/conf:/usr/share/grafana/conf
+    - $PWD/tig/grafana/provisioning:/etc/grafana/provisioning
   influxdb:
     image: influxdb
     container_name: influxdb
@@ -23,7 +23,7 @@ services:
     networks:
      - monitoring
     volumes:
-    - $PWD/tig/influxdb:/vol01/Docker/monitoring
+    - $PWD/tig/influxdb/monitoring:/vol01/Docker/monitoring
     environment:
     - INFLUXDB_DB=telegraf
     - INFLUXDB_USER=telegraf

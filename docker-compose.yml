@@ -15,6 +15,7 @@ services:
     - $PWD/tig/grafana/monitoring:/vol01/Docker/monitoring
     - $PWD/tig/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
     - $PWD/tig/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+    - $PWD/tig/grafana/dashboards:/var/lib/grafana/dashboards
   influxdb:
     image: influxdb
     container_name: influxdb
